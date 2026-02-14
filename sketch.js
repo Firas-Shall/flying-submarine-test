@@ -69,6 +69,8 @@ async function initializeHandTracking() {
 
   hands.onResults(onHandsDetected);
 
+  await hands.initialize();
+
   console.log('MediaPipe Hands configured');
 
   handsReady = true;
