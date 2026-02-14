@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Motion Particle System</title>
     <style>
         body {
@@ -53,6 +54,37 @@
         canvas {
             display: block;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                align-items: flex-start;
+            }
+
+            main {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .instructions {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .instructions h3 {
+                font-size: 16px;
+            }
+
+            .instructions ul {
+                font-size: 14px;
+            }
+
+            canvas {
+                width: 100% !important;
+                height: auto !important;
+            }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
