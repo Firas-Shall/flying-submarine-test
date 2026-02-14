@@ -46,23 +46,20 @@ function setup() {
 }
 
 
-function initializeHandTracking() {
-  // Check if MediaPipe is available
+async function initializeHandTracking() {
   if (typeof Hands === 'undefined') {
-    console.error('MediaPipe Hands not loaded! Check your internet connection and script tags.');
+    console.error('MediaPipe Hands not loaded!');
     return;
   }
 
   console.log('Creating MediaPipe Hands instance...');
 
-  // Create MediaPipe Hands instance
   hands = new Hands({
     locateFile: (file) => {
-      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/${file}`;
     }
   });
 
-  // Configure hand detection (detect only one hand)
   hands.setOptions({
     maxNumHands: 1,
     modelComplexity: 1,
@@ -70,14 +67,18 @@ function initializeHandTracking() {
     minTrackingConfidence: 0.4
   });
 
-  // Set up callback for when hands are detected
   hands.onResults(onHandsDetected);
 
   console.log('MediaPipe Hands configured');
 
-
-
   handsReady = true;
+
+  // 🔥 IMPORTANT: warm up MediaPipe once
+  await hands.send({ image: video.elt });
+
+  console.log('MediaPipe fully initialized');
+
+  // Start loop only AFTER warm-up completes
   processHandTracking();
 }
 
