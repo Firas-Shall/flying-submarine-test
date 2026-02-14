@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motion Particle System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
+
+        main {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .instructions {
+            color: #ffffff;
+            max-width: 200px;
+            opacity: 0.8;
+        }
+
+        .instructions h3 {
+            font-size: 14px;
+            margin: 0 0 15px 0;
+            color: #00d4ff;
+            letter-spacing: 1px;
+        }
+
+        .instructions ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .instructions li:before {
+            content: "• ";
+            color: #00d4ff;
+            margin-right: 8px;
+        }
+
+        canvas {
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <!-- MediaPipe Hands library with dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="sketch.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="instructions">
+            <h3>HOW TO USE</h3>
+            <ul>
+                <li>Show hand to camera</li>
+                <li>Move index finger</li>
+                <li>Good lighting helps</li>
+            </ul>
+        </div>
+        <!-- Canvas will be created by p5.js -->
+    </main>
+</body>
+
+</html>
